@@ -26,6 +26,27 @@ class Student
     DB[:conn].execute(sql, name).map{|row| self.new_from_db(row)}.first
   end
   
+  def self.all_in_9 
+              sql = <<-SQL
+    SELECT * FROM students grade= 9
+    
+    SQL
+
+    DB[:conn].execute(sql).map{|row| self.new_from_db(row)}
+
+  end 
+  
+  def self.all_but_12th 
+              sql = <<-SQL
+    SELECT * FROM students grade<12
+    
+    SQL
+
+    DB[:conn].execute(sql).map{|row| self.new_from_db(row)}
+
+  end 
+
+  
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade) 
