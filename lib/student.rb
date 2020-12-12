@@ -20,7 +20,7 @@ class Student
     )
     SQL
 
-    DB[:conn].execute(sql, name)
+    DB[:conn].execute(sql, name).map{|row|
   end
   
   def save
