@@ -40,4 +40,18 @@ class Student
     sql = "DROP TABLE IF EXISTS students"
     DB[:conn].execute(sql)
   end
+  
+  def self.new_from_db(data_row)
+    Student.new(data_row[1], data_row[2])
+  end
+  
+  def self.find_by_name(name)
+        sql = <<-SQL
+    SELECT * FROM students WHERE name= ?
+    )
+    SQL
+
+    DB[:conn].execute(sql, name)
+
+  end
 end
