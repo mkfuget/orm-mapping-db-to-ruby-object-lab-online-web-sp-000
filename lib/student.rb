@@ -36,7 +36,7 @@ class Student
 
   end 
   
-  def self.all_but_12th 
+  def self.students_below_12th_grade 
               sql = <<-SQL
     SELECT * FROM students grade<12
     
@@ -46,6 +46,7 @@ class Student
 
   end 
 
+  
   
   def save
     sql = <<-SQL
