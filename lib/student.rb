@@ -2,9 +2,9 @@ class Student
   attr_accessor :id, :name, :grade
   def self.new_from_db(data_row)
     out = Student.new
-    out[:id] = data_row[0]
-    out[:name] = data_row[1]
-    out[:grade] = data_row[2]
+    out.id = data_row[0]
+    out.name = data_row[1]
+    out.grade = data_row[2]
   end
 
   def self.all
